@@ -5,7 +5,8 @@ public class kill {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Enter a string: ");
         String input = scanner.nextLine();
-\\ i made changes
+\\ i made changes -abdullah
+\\ change made by rupesh account
         if (input.length() <= 1) {
             System.out.println("Shifted string: " + input);
         } else {
