@@ -1,0 +1,27 @@
+class Solution {
+    public String processStr(String s) {
+        String result = "";
+        
+        for (int i = 0; i < s.length(); i++) {
+            char ch = s.charAt(i);
+            
+            if (ch >= 'a' && ch <= 'z') {
+                result = result + ch;
+            } 
+            else if (ch == '#') {
+                result = result + result;
+            } 
+            else if (ch == '%') {
+                result = new StringBuilder(result).reverse().toString();
+            } 
+            else if (ch == '*') {
+                if (!result.isEmpty()) {
+                    result = result.substring(0, result.length() - 1);
+                }
+            }
+        }
+        
+        System.out.println(result);
+        return result;
+    }
+}
