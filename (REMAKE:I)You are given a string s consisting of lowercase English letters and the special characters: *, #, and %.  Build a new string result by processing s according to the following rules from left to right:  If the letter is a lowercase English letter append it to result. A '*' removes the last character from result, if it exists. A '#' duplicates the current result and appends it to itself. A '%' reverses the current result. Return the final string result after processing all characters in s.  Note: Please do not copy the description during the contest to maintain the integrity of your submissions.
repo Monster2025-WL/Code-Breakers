@@ -1,0 +1,38 @@
+import java.util.*;
+
+class Solution1 {
+    public String processStr(String s) {
+        StringBuilder result = new StringBuilder();
+
+        for (int i = 0; i < s.length(); i++) {
+            char ch = s.charAt(i);
+
+            if (ch >= 'a' && ch <= 'z') {
+                result.append(ch); // Faster than string + char
+            } 
+            else if (ch == '#') {
+                result.append(result); // Duplicate current string
+            } 
+            else if (ch == '%') {
+                result.reverse(); // Directly reverses the StringBuilder
+            } 
+            else if (ch == '*') {
+                if (result.length() > 0) {
+                    result.deleteCharAt(result.length() - 1); // More efficient than substring
+                }
+            }
+        }
+
+        String finalResult = result.toString();
+        System.out.println(finalResult);
+        return finalResult;
+    }
+
+    public static void main(String[] args) {
+        try (Scanner sc = new Scanner(System.in)) {
+            String s = sc.next();
+            Solution1 ob = new Solution1();
+            ob.processStr(s);
+        }
+    }
+}
