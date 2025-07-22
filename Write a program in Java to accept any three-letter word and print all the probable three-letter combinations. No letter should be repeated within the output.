@@ -1,0 +1,32 @@
+import java.util.*;
+public class ROS3 
+{
+    public static void main(String[] args) 
+    {
+        Scanner sc=new Scanner(System.in);
+        System.out.println("Enter a String of 3 letters to find the possible combinations");
+        String s=sc.next(),w="",w1="";    
+        for(int i=0;i<3;i++)
+        {
+            w="";
+            w1="";
+            char ch=' ';
+            ch=s.charAt(i);
+            for(int j=0;j<3;j++)
+            {
+                char ch1=' ';
+                if(i!=j)
+                {
+                    ch1=s.charAt(j);
+                    {
+                        w=w+ch1;
+                        w1=ch1+w1;
+                    }
+                }
+                
+            }
+            System.out.println(ch+w);
+                System.out.println(ch+w1);
+        }    
+    }
+}
