@@ -1,0 +1,57 @@
+import java.util.*;
+public class SSCA 
+      {
+         public static void main()
+         {
+            Scanner sc=new Scanner(System.in);
+            String str=sc.nextLine();
+            str=str.toUpperCase();
+            char ch=' ';
+            String w="",w1="";
+            int l=str.length(),c=0;
+            String aw[]=new String[l];
+            str=str.trim();
+            str=str+" ";
+            for(int i=0;i<=l;i++)
+            {
+             ch=str.charAt(i);
+             if(ch!=' ')
+             {
+                w=w+ch;      
+             }   
+             else if((ch==' ')&&(i<l))
+             {
+                int d=i+1;
+                char ch1=str.charAt(d);
+                if(ch1==' ')
+                {
+                    continue;
+                }
+                aw[c++]=w;
+                w="";
+             }
+             else if (i==l)
+             {
+                aw[c++]=w;
+             }   
+            }
+            System.out.println("Enter position and word");
+            int n=sc.nextInt();
+            String s=sc.next();
+            for(int i=0;i<c;i++)
+            {
+                if(i!=(n-1))
+                {
+                    w1=w1+aw[i]+" ";
+                }
+                else
+                continue;
+            }
+            for(int i=0;i<c;i++)
+            {
+                System.out.println(aw[i]);
+            }
+            System.out.println(w1);
+
+         }
+}
