@@ -1,0 +1,127 @@
+import java.util.*;
+class watertrap{
+    public static void main(String arsg[]){
+        Scanner sc=new Scanner (System.in);
+        int n=sc.nextInt();
+        int h[]=new int[n];
+        int mid[]=new int[n];
+        int d=0,a=0,c=1,savedwater=0;
+        for(int i=0;i<n;i++){
+           h[i]=sc.nextInt();;
+        }
+        int max=0;
+            for(int i=0;i<n;i++){
+            if(h[max]<h[i])
+            max=i;
+        }
+        System.out.println("maximum  value at :"+max);
+        if(h[0]==0||h[0]<h[1])
+        {
+            for(int j=1;j<max;j++)
+            {
+            if(h[c]>h[j])
+            {
+            a=h[c]-h[j];
+            mid[j]=a;a=0;
+            }
+            else{
+            if(h[1]<h[j])
+            c=j;
+            continue;
+            }
+            }
+            if(h[max]>h[n-1]){
+            h[max]-=1;
+            for(int j=max;j<n-1;j++)
+            {
+            if(h[max]>h[j])
+            {
+            a=h[max]-h[j];
+            mid[j]=a;a=0;
+            }
+            else if(h[max]<h[j])
+            {a=h[j]-h[max];
+            mid[j]=a;
+            a=0;
+            
+            }
+            }
+            }
+            else{
+            for(int b=max;b<n-1;b++)
+            {
+            if(h[max]>=h[b])
+            {
+            a=h[max]-h[b];
+            mid[b]=a;
+            a=0;
+            max=b+1;
+            }
+            else
+            {
+            a=h[b]-h[max];
+            mid[b]=a;
+            a=0;
+            }
+            }
+            }
+        }
+        else
+        {
+           for(int b=0;b<max;b++)
+           {
+            if(h[0]>=h[b])
+            {
+            a=h[0]-h[b];
+            mid[b]=a;
+            a=0;
+            }
+            else
+            {
+            a=h[b]-h[0];
+            mid[b]=a;
+            a=0;
+            }
+           }
+           if(h[max]>h[n-1]){
+           //h[max]=h[max]-1;
+           for(int j=max;j<n-1;j++)
+           {
+            if(h[max]>h[j])
+            {
+            a=h[max]-h[j];
+            mid[j]=a;a=0;
+             }
+            else if(h[max]<=h[j])
+            {
+            h[max]=h[j]-1;
+            }
+            }
+            }else{
+           for(int b=max;b<n-1;b++)
+            {if(h[max]>=h[b])
+            {
+            a=h[max]-h[b];
+            mid[b]=a;
+            a=0;max=b+1;
+            }
+            else
+            {
+            a=h[b]-h[max];
+            mid[b]=a;
+            a=0;
+            }
+           }
+           }
+        }
+        System.out.println("saved water array");
+        for(int k=0;k<n;k++){
+            System.out.print(mid[k]+" ");
+        }
+        System.out.println();
+        for(int k=0;k<n;k++){
+            savedwater+=mid[k];
+        }
+        System.out.println("saved rain drop water:"+savedwater);
+    }
+}
